@@ -121,8 +121,7 @@ void ShowScreen() {
     ImGui::Begin("Screen");
     ImGui::SliderFloat("Time", &history, 0.05f, 120.0f, "%.3f", ImGuiSliderFlags_None);
     ImGui::DragFloat("Fine ajust", &history, 0.05f, 0.05f, 120, "%.3f", ImGuiSliderFlags_None);
-    if (ImPlot::BeginPlot("#Screen", ImVec2(-1, 250))) {
-        ImPlot::SetupAxes(NULL, NULL, ImPlotAxisFlags_NoTickLabels, ImPlotAxisFlags_NoTickLabels);
+    if (ImPlot::BeginPlot("#Screen", ImVec2(-1, 250), ImPlotFlags_AntiAliased | ImPlotFlags_Crosshairs | ImPlotFlags_NoTitle)) {
         ImPlot::SetupAxisLimits(ImAxis_X1, t - history, t, ImGuiCond_Always);
         ImPlot::SetupAxisLimits(ImAxis_Y1, 0, 1);
         ImPlot::SetNextFillStyle(IMPLOT_AUTO_COL, 0.5f);
